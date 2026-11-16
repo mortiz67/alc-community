@@ -12,8 +12,9 @@ Do not upload supout.rif/autosupout.rif, configuration backups, support bundles,
 
 ## Environment
 
-- Driver version and VIB SHA-256:
-- ESXi build:
+- Exact VIB filename, package version and SHA-256 (6.7 or 7.0/8.0 variant):
+- ESXi version/update and full build:
+- Install route (standalone VIB or 7.0/8.0 component) and previous version, if updating:
 - RouterOS and RouterBOOT versions:
 - Server model and card count:
 - Native host or PCI assignment to guest (all functions?):
@@ -33,4 +34,4 @@ Do not upload supout.rif/autosupout.rif, configuration backups, support bundles,
 
 ## Evidence
 
-Paste only a short, redacted incident excerpt and relevant package/NIC state. State which artifact was actually installed. Mention that private diagnostics are available without attaching them. See SUPPORT.md and VALIDATION.md.
+Paste only a short, redacted incident excerpt and relevant package/NIC state. State which artifact was actually installed. Mention that private diagnostics are available without attaching them. See [SUPPORT.md](https://github.com/mortiz67/alc-community/blob/main/SUPPORT.md) and [VALIDATION.md](https://github.com/mortiz67/alc-community/blob/main/VALIDATION.md).
