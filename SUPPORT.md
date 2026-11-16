@@ -4,7 +4,7 @@ Community support is through the issue tracker associated with this release. The
 
 ## A useful public report
 
-Include the driver version and VIB SHA-256, ESXi build, RouterOS/RouterBOOT versions, server model, one-card/multi-card and native/guest setup, MTU/L2MTU, a short reproduction, and the failure timestamp/timezone. Add a redacted NIC inventory and a small relevant driver-log excerpt. State whether management remained available, whether RouterOS uptime changed, and whether the same problem affects new connections.
+Include the full VIB filename, package version and SHA-256 (6.7 variant or 7.0/8.0 variant), ESXi build, RouterOS/RouterBOOT versions, server model, one-card/multi-card and native/guest setup, MTU/L2MTU, a short reproduction, and the failure timestamp/timezone. Add a redacted NIC inventory and a small relevant driver-log excerpt. State whether management remained available, whether RouterOS uptime changed, and whether the same problem affects new connections.
 
 Read-only examples:
 

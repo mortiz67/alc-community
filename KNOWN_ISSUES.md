@@ -1,6 +1,6 @@
 # Known issues and limits
 
-These are the limits reported in the supplied project release documentation, with the scope of the claims clarified. They are not a claim that every future error has the same cause. No defect was fixed by this documentation-only revision.
+These are the limits reported in the supplied project release documentation, with the scope of the claims clarified. They are not a claim that every future error has the same cause. The supplied 0.7.51 changelog reports compatibility, PCIe-diagnostic and logging changes, with no data-path/offload/link-recovery changes from 0.7.43. Preparing this publication did not modify either binary or claim a fix for the RouterOS failures below.
 
 ## RouterOS hung-task panic
 
@@ -30,8 +30,8 @@ TCP segmentation and VLAN handling occur in the driver. The original release rep
 
 ## Package and validation limits
 
-The VIB is unsigned and CommunitySupported. Secure Boot compatibility and vendor certification are not provided. Existing live-install/live-remove metadata has been preserved; the manual maintenance policy must be followed. vLCM depot import is not proof of cluster-image remediation.
+Both VIB variants are unsigned and CommunitySupported. The 6.7 VIB and the 7.0/8.0 VIB have different VMKAPI requirements; choose by the host version, not by the larger package release number. The offline component bundle is only for 7.0/8.0. Do not force the 7.0/8.0 package onto 6.7. Secure Boot compatibility and vendor certification are not provided. Existing live-install/live-remove metadata has been preserved; the manual maintenance policy must be followed. vLCM depot import is not proof of cluster-image remediation.
 
-The supplied binary has not received a complete independent source/error-path audit. Handling of DMA unmap/destruction failures remains an engineering review item; a successful normal-path soak does not exercise those failures. Do not force unload/remove after failed teardown. Source changes or such failures need a separate tested driver build, not this repack.
+This publication preparation checked artifact structure and identity, not the complete source code or runtime error paths. Handling of DMA unmap/destruction failures remains an engineering review item; no claim that 0.7.51 resolves that earlier review item is made here. Normal-path traffic tests do not exercise every failure path. Do not force unload/remove after failed teardown.
 
-See VALIDATION.md for the distinction between project-reported runs and checks performed on these archive bytes.
+See [VALIDATION.md](VALIDATION.md) for the distinction between exact-asset project reports, earlier-build results and local package checks. Long soaks of the exact 0.7.51 assets, an in-place update from the public 0.7.43 package and vLCM remediation are not established by the supplied record.

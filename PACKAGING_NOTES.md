@@ -1,25 +1,32 @@
-# Publication revision r1
+# Publishing alc-community 0.7.51
 
-Prepared 2026-11-11 from the supplied `alc-community-public.zip` (SHA-256 `c3e2c7b197a5043a4aa13e7877bf1da5b7f60c376ad48867be372e728447efb2`). This file describes editorial/packaging work, not new driver development or authorization to install on a host.
+**Suggested tag:** `v0.7.51-preview.1`  
+**Title:** `alc-community 0.7.51 — Community Preview`  
+**Classification:** pre-release
 
-## Preserved
+## Files to publish
 
-The VIB, offline bundle, `dist/SHA256SUMS`, LICENSE and existing `.gitignore` are copied without changes. Consequently the embedded driver version, empty VIB signature, live-install/live-remove flags, component identity and empty replacement/conflict relationships are also unchanged. No new signature, code fix or metadata enforcement is implied.
+The handoff ZIP separates two destinations:
 
-The original driver changelog entry is retained. The author's two reported 12-hour validation claims are retained with their evidence limits stated, rather than silently replaced with older project runs.
+- `repositorio/`: copy its contents into the existing repository root, preserving `.github/ISSUE_TEMPLATE/bug_report.md`. These are public documents, LICENSE and the GitHub support template. Do not upload the outer `repositorio` folder as an extra directory level.
+- `release/`: attach its four files to the new GitHub release: the two 0.7.51 VIBs, the 7.0/8.0 offline bundle and `SHA256SUMS`. This folder is a staging directory, not a combined ESXi depot.
 
-## Changed
+Use `RELEASE_NOTES.md` as the release description. Keep the old 0.7.43 release and its assets intact. The repository's `.gitignore` continues to exclude `dist/`; installers are distributed as release assets, not through GitHub's automatically generated source archives.
 
-Removed all `.git` history, objects, hooks and configuration from the distributable. No private development archive, logs, firmware, reverse-engineering notes, source headers, credentials or supout files are included. Revised the public README and added focused manuals, issue-report guidance, a validation scope document and release text.
+There is one release `SHA256SUMS`, covering exactly the three new installer files. It does not cover repository documents or the outer handoff ZIP. Downloaded installers must be checked against their matching filenames. No stale whole-package manifest or historical audit JSON is included in the handoff.
 
-Operational proposals in INSTALL/RECOVERY are labeled separately from actual tests. In particular, the staged VIB route is documented from ESXCLI semantics, not newly exercised on a host. There is no automatic install/uninstall script. Safety instructions appear before modifying commands.
+## Preserved and changed
 
-## Publishing
+The supplied 0.7.51 VIBs, offline bundle and LICENSE are unchanged byte for byte. No recompilation, code patch, metadata edit, signature or runtime test was performed during publication preparation. The bundle's VIB is identical to the standalone 7.0/8.0 VIB. The dedicated 6.7 variant has its own namespace, package version and hash.
 
-Use `RELEASE_NOTES.md` as the release description and label it a community preview/pre-release. Use a fresh public repository or copy only the intended documentation; do not upload the private project's Git history. The preserved `.gitignore` excludes `dist/`, so upload the VIB, bundle and `dist/SHA256SUMS` explicitly as release assets. The full clean ZIP may also be offered as a convenience download.
+Public documentation was brought forward to the new version, obsolete links were removed, package selection was separated by host version, and the reported runtime tests were distinguished from static checks. Full-remediation and public-0.7.43-upgrade claims are not inferred from version order or a dry-run.
 
-Keep version and hash identity stable. `r1` is the archive/documentation revision, not a changed VIB. If code or VIB metadata changes, create a new driver/package build and refresh validation, not a silent replacement of these assets. No repository URL, contact mailbox or publication action is created by this archive.
+The distribution contains no private Git history, prior installers, diagnostic logs, firmware images, configuration backups or internal development material. Only public release documents and the three new supplied installers are included.
 
-## Open items, not silently solved by repackaging
+The LICENSE text is retained verbatim, including its historical ESXi 8 title and FreeBSD attribution. The current compatibility scope is in README/VALIDATION; the license header was not rewritten inside the binary packages.
 
-Exact-hash attribution for the newly reported long runs; rehearsal of recovery; exact-component vLCM remediation; error-path source review for DMA teardown; general hardware compatibility and legal/provenance review. LICENSE is retained as supplied; this packaging work is not a legal clearance or production certification.
+## Boundaries
+
+The descriptors still permit live install/removal and do not require maintenance. The guides deliberately require a maintenance window and independent recovery access; the unchanged metadata does not enforce that policy. These procedural changes are not a hardware rehearsal.
+
+The supplied project reports no data-path/offload/recovery logic change in 0.7.51. Existing RouterOS failure modes, limited runtime evidence for exact-artifact long runs, unverified vLCM remediation and the pending error-path audit remain documented. Packaging is not vendor certification, legal/provenance clearance or production support.

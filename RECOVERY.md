@@ -1,6 +1,6 @@
 # Recovery plan
 
-**Prepare before installing.** These are proposed operating procedures based on the project history and the official references below, not an assurance that every host can be recovered the same way. This r1 preparation did not perform a boot, rollback, removal or recovery drill with 0.7.43.
+**Prepare before installing.** These are proposed operating procedures based on the project history and the official references below, not an assurance that every host can be recovered the same way. This 0.7.51 publication preparation did not perform a boot, rollback, removal or recovery drill. The project-reported runtime tests of the supplied installers are listed separately in VALIDATION.md.
 
 An independent management NIC, console path, configuration backup and known-good boot/install media are prerequisites. A console routed through this CCR is not independent. A backup of configuration is not a backup of VM disks. Do not repeatedly reset an unstable card or force driver unload.
 
@@ -21,7 +21,7 @@ Check the result. This does not prove the current module is unloaded or that DMA
 auto-backup.sh
 ```
 
-4. Arrange a controlled reboot only after dependencies are safe. Confirm the module is disabled/not loaded on the next boot. Then remove the package through its VIB/component owner as described in INSTALL.md. If a removal fails, preserve the error instead of deleting files.
+4. Arrange a controlled reboot only after dependencies are safe. Confirm the module is disabled/not loaded on the next boot. Then remove the package through its VIB owner on ESXi 6.7, or its VIB/component owner on 7.0/8.0, as described in INSTALL.md. If a removal fails, preserve the error instead of deleting files.
 5. A disabled-module setting may survive package changes. Re-enabling it is a separate deliberate action after the cause is understood, not a routine step to bypass recovery.
 
 ## Host fails to boot or enters a PSOD loop
